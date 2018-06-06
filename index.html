@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<!-- some definitions -->
+	<title>Flags and Custom Flags calculator for OTS</title>
+	<meta name="description" content="Flags and Custom Flags calculator for Open Tibia Servers (OTS). Works with TFS, OTServ, Avesta, OTHire and many more." />
+	<meta name="keywords" content="flags,calculator,ots,otserv,avesta,othire,myaac" />
+
+	<!-- external assets -->
+	<link href="assets/css/ext/jquery-ui.min.css" rel="stylesheet">
+	<script src="assets/js/ext/jquery.js"></script>
+	<script src="assets/js/ext/jquery-ui.min.js"></script>
+	<script type="text/javascript" src="assets/js/ext/BigInt.js"></script>
+
+	<!-- ots-flags-calculator assets -->
+	<script type="text/javascript" src="assets/js/main.js"></script>
+	<link href="assets/css/table.css" rel="stylesheet">
+</head>
+<body>
+<div id="tabs">
+	<ul>
+		<li><a href="#tabs-1">Standard Flags</a></li>
+		<li><a href="#tabs-2">Custom Flags</a></li>
+	</ul>
+
+	<div id="tabs-1">
+		<h2>Flags works with any distro (TFS, OTServ, Avesta, OTHire).</h2>
+		<form name="flagform">
+		<table id="flagtable" class="greyGridTable" cellspacing="0" cellpadding="1" width="600" border="1">
+			<thead>
+				<tr>
+					<th>Privileges</th>
+					<th>Limitations</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr id="standard-flags">
+					<td valign="top" width="300">
+						<label><input type="checkbox" value="8"> Can not be attacked</label><br/>
+						<label><input type="checkbox" value="16"> Can convince all monsters</label><br/>
+						<label><input type="checkbox" value="32"> Can summon all monsters</label><br/>
+						<label><input type="checkbox" value="64"> Can illusion all monsters</label><br/>
+						<label><input type="checkbox" value="128"> Can sense invisibility</label><br/>
+						<label><input type="checkbox" value="256"> Ignored by monsters</label><br/>
+						<label><input type="checkbox" value="512"> Do not gain infight</label><br/>
+						<label><input type="checkbox" value="1024"> Has unlimited mana</label><br/>
+						<label><input type="checkbox" value="2048"> Has unlimited soul</label><br/>
+						<label><input type="checkbox" value="4096"> Do no gain exhaustion</label><br/>
+						<label><input type="checkbox" value="32768"> Can always login</label><br/>
+						<label><input type="checkbox" value="65536"> Can broadcast</label><br/>
+						<label><input type="checkbox" value="131072"> Can edit all house rights</label><br/>
+						<label><input type="checkbox" value="262144"> Can not be banned</label><br/>
+						<label><input type="checkbox" value="524288"> Can not be pushed</label><br/>
+						<label><input type="checkbox" value="1048576"> Has unlimited capacity</label><br/>
+						<label><input type="checkbox" value="2097152"> Can push all creatures</label><br/>
+						<label><input type="checkbox" value="4194304"> Talk red in private</label><br/>
+						<label><input type="checkbox" value="8388608"> Talk red in channel</label><br/>
+						<label><input type="checkbox" value="16777216"> Talk orange in help-channel</label><br/>
+						<label><input type="checkbox" value="17179869184"> Skip spell usage checks</label><br/>
+						<label><input type="checkbox" value="34359738368"> Skip weapon usage checks</label><br/>
+						<label><input type="checkbox" value="536870912"> Gain max speed</label><br/>
+						<label><input type="checkbox" value="1073741824"> Cannot be added to VIP</label><br/>
+						<label><input type="checkbox" value="4294967296"> Talk red anonymously</label><br/>
+						<label><input type="checkbox" value="8589934592"> Ignore protection-zone</label><br/>
+						<label><input type="checkbox" value="68719476736"> Can not be muted</label><br/>
+						<label><input type="checkbox" value="137438953472"> Permanent premium account</label><br/>
+						<label><input type="checkbox" value="274877906944"> Can answer rule violations</label><br/>
+						<label><input type="checkbox" value="549755813888"> Can reload content</label><br/>
+						<label><input type="checkbox" value="1099511627776"> Show group description instead of vocation </label><br/>
+						<label><input type="checkbox" value="2199023255552"> Has infinite stamina </label><br/>
+						<label><input type="checkbox" value="17592186044416"> Can report bugs </label><br/>
+						<label><input type="checkbox" value="35184372088832"> Extended description </label><br/>
+						<label><input type="checkbox" value="70368744177664"> Total invisibility </label>
+					</td>
+					<td valign="top" width="300">
+						<label><input type="checkbox" value="1"> Can not use combat</label><br/>
+						<label><input type="checkbox" value="2"> Can not attack players</label><br/>
+						<label><input type="checkbox" value="4"> Can not attack monsters</label><br/>
+						<label><input type="checkbox" value="8192"> Cannot use spells</label><br/>
+						<label><input type="checkbox" value="16384"> Cannot pickup items</label><br/>
+						<label><input type="checkbox" value="33554432"> Do not gain experience</label><br/>
+						<label><input type="checkbox" value="67108864"> Do not gain mana</label><br/>
+						<label><input type="checkbox" value="134217728"> Do not gain health</label><br/>
+						<label><input type="checkbox" value="268435456"> Do not gain skill</label><br/>
+						<label><input type="checkbox" value="2147483648"> Can not gain loot</label><br/>
+						<label><input type="checkbox" value="4398046511104"> Can not move items </label><br/>
+						<label><input type="checkbox" value="8796093022208"> Can not move creatures </label>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+
+		</form>
+
+		<form name="resultform" id="resultform">
+			<p><strong>Flags: </strong>
+			<input type="text" id="flagresult" name="flagresult" title="Result"> </p>
+			<input type="button" value="Update" id="flagclick" onclick="calcCheckboxes()" name="flagclick">
+		</form>
+	</div>
+
+	<div id="tabs-2">
+		<h2>Custom flags works only with TFS 0.3 and TFS 0.4.</h2>
+		<form name="customflagform">
+		<table id="customflagtable" class="greyGridTable" cellspacing="0" cellpadding="2" width="600" border="1">
+			<thead>
+				<tr>
+					<th>Player flags</th>
+					<th>Account flags</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr id="custom-flags">
+					<td valign="top" width="300">
+						<label><input type="checkbox" value="1"> Can report bugs with CTRL+Z</label><br/>
+						<label><input type="checkbox" value="2"> Can see position onLook</label><br/>
+						<label><input type="checkbox" value="4"> Can see item details onLook</label><br/>
+						<label><input type="checkbox" value="8"> Can see creature details onLook</label><br/>
+						<label><input type="checkbox" value="16"> Cannot be searched with exiva spell</label><br/>
+						<label><input type="checkbox" value="32"> Gamemaster privileges*</label><br/>
+						<label><input type="checkbox" value="64"> Can throw items anywhere</label><br/>
+						<label><input type="checkbox" value="128"> Can push any item</label><br/>
+						<label><input type="checkbox" value="256"> Can teleport to unstandable tiles</label><br/>
+						<label><input type="checkbox" value="512"> Can move things from far</label><br/>
+						<label><input type="checkbox" value="2048"> Has full light by default</label><br/>
+						<label><input type="checkbox" value="8192"> Has infinite stamina hours</label><br/>
+						<label><input type="checkbox" value="16384"> Is protected</label><br/>
+						<label><input type="checkbox" value="32768"> Is immune to fields</label><br/>
+						<label><input type="checkbox" value="65536"> Doesn't gain skulls</label><br/>
+						<label><input type="checkbox" value="131072"> Doesn't gain unjustified kills</label><br/>
+						<label><input type="checkbox" value="262144"> Can see STAFF channel</label><br/>
+						<label><input type="checkbox" value="524288"> Can see COUNSELLOR channel</label><br/>
+						<label><input type="checkbox" value="1048576"> Display group name instead of vocation in description</label><br/>
+						<label><input type="checkbox" value="2097152"> Hide level in description</label><br/>
+						<label><input type="checkbox" value="4194304"> Ignore disablement checks</label>
+					</td>
+					<td valign="top" width="300">
+						<label><input type="checkbox" value="1024"> Can login multiple characters at one time</label><br/>
+						<label><input type="checkbox" value="4096"> Character can logout anytime and anywhere</label>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+		</form>
+
+		<form name="customresultform" id="customresultform">
+			<p><strong>Flags: </strong>
+			<input type="text" id="customflagresult" name="customflagresult" title="Result"> </p>
+			<input type="button" value="Update" id="customflagclick" onclick="calcCheckboxes('custom')" name="customflagclick">
+		</form>
+	</div>
+</div>
+</body>
+</html>
