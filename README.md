@@ -7,10 +7,13 @@ Flags Calculator for TFS, OTServ, Avesta, OTHire and many more.
 - https://slawkens.github.io/ots-flags-calculator/
 
 ### Standard Flags
-Flags works with any distro (TFS, OTServ, Avesta, OTHire).
+Standard flags were developed for OpenTibia.  
+They works with almost __ANY__ distribution.  
+This includes (but not only): Open Tibia Server (OTServ), The Forgotten Server (TFS), Avesta, OTHire.
 
 ### Custom Flags
-Custom flags works only with TFS 0.3 and TFS 0.4.
+Custom flags were developed for TFS 0.3.  
+They works with a distribution based on it and its derivatives like TFS 0.4 and OTX Server.
 
 ## Similar projects
 - https://github.com/comedinha/flags-calculator
